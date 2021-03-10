@@ -1,3 +1,9 @@
 .App {
     text-align: center;
+    width:50%;
+    margin:auto;
   }
+
+.ui.main.container {
+  margin-top: 7em;
+}
