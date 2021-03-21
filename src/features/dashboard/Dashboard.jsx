@@ -38,11 +38,11 @@ export default memo(function Dashboard({ formOpen, setFormOpen }) {
 const ImageThumb = ({ images }) => {
   return (
     <>
-      {images.map(({filename, prediction}) => {
+      {images.map(({filename, detected_filename, prediction}) => {
         const label = prediction.displayNames[0];
         return (
         // <img src={URL.createObjectURL(image)} alt={image.name} />
-        <div><img src={`${API_URL}/files/${filename}`} alt={filename} style={{width : '100%'}} />
+        <div><img src={`${API_URL}/files/${detected_filename}`} alt={detected_filename} style={{width : '100%'}} />
         <p>{label}</p></div>
         
       )})}
