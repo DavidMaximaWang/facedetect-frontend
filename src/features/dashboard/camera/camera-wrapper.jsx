@@ -19,7 +19,7 @@ function CameraWrapper({handleUpload }) {
       </Segment>
       
       {isCameraOpen && <Camera onCapture={(blob) => {setCardImage(blob);
-      handleUpload([new File([blob], "a.jpeg")])
+      handleUpload([new File([blob], "a.jpg")])
       }} onClear={() => setCardImage(undefined)} />}
       {cardImage && (
         <div>
