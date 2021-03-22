@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  face:
+    image: face-dect-front:prod
+    container_name: face-dect-front
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - '1337:80'
