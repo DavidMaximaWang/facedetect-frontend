@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  flask:
+    build:
+      context: ./face_detect_back_end
+      dockerfile: Dockerfile    
+    container_name: face_backend
+    ports:
+      - "5000:5000"
+
+  nginx: 
+    build:
+      context: ./face_detect_front
+      dockerfile: Dockerfile.prod
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+      certbot:
+        image: certbot/certbot                

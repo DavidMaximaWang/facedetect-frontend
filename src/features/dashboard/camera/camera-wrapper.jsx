@@ -8,9 +8,9 @@ function CameraWrapper({handleUpload }) {
   
   const handleClick = ()=>{
     setIsCameraOpen(!isCameraOpen);
-    if(setIsCameraOpen){
-      setCardImage(undefined);
-    }
+    // if(setIsCameraOpen){
+    //   setCardImage(undefined);
+    // }
   };
   return (
     <>

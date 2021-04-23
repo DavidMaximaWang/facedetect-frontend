@@ -3,7 +3,12 @@ import { Grid } from 'semantic-ui-react';
 import CameraWrapper from './camera/camera-wrapper';
 import UploadImage from './UploadImage';
 
-const API_URL = "http://localhost:5000"
+// let {REACT_APP_API_URL:API_URL} = process.env;
+// API_URL = "http://" + API_URL +":5000";
+// const {REACT_APP_HOST, REACT_APP_PORT} = process.env;
+const API_URL = 'api'
+console.log(process.env)
+// const API_URL = "http://" + REACT_APP_HOST + ":" +  REACT_APP_PORT;
 export default memo(function Dashboard({ formOpen, setFormOpen }) {
   const [images, setImages] = useState([]);
   function handleUpload(files) {
@@ -39,10 +44,10 @@ const ImageThumb = ({ images }) => {
   return (
     <>
       {images.map(({filename, detected_filename, prediction}) => {
-        const label = prediction.displayNames[0];
+        const label = prediction && prediction.displayNames && prediction.displayNames[0];
         return (
         // <img src={URL.createObjectURL(image)} alt={image.name} />
-        <div><img src={`${API_URL}/files/${detected_filename}`} alt={detected_filename} style={{width : '100%'}} />
+        <div><img src={`${API_URL}/files/${filename}`} alt={detected_filename} style={{width : '100%'}} />
         <p>{label}</p></div>
         
       )})}
