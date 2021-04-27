@@ -3,10 +3,10 @@ import { Grid } from 'semantic-ui-react';
 import CameraWrapper from './camera/camera-wrapper';
 import UploadImage from './UploadImage';
 
-// let {REACT_APP_API_URL:API_URL} = process.env;
+let {REACT_APP_API_URL:API_URL} = process.env;
 // API_URL = "http://" + API_URL +":5000";
 // const {REACT_APP_HOST, REACT_APP_PORT} = process.env;
-const API_URL = 'api'
+// const API_URL = 'api'
 console.log(process.env)
 // const API_URL = "http://" + REACT_APP_HOST + ":" +  REACT_APP_PORT;
 export default memo(function Dashboard({ formOpen, setFormOpen }) {
