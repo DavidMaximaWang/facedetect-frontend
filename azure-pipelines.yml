@@ -17,9 +17,12 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'ku8qaa2691bfd9-auth'
+  
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
+  apiURL: http://20.69.113.58:5000  
+  
 
   # Name of the new namespace being created to deploy the PR changes.
   k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
@@ -34,6 +37,8 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
+
+      condition: 
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
@@ -70,6 +75,9 @@ stages:
 
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
+            env:
+              REACT_APP_API_URL: $(apiURL)
+              REACT_APP_API_URL1: 111            
             inputs:
               action: deploy
               manifests: |
